@@ -21,7 +21,15 @@ public class PatientService {
         patientData = Files.readAllLines(Paths.get(uri)).stream().collect(Collectors.joining());
     }
 
-    public String getPatientData() {
-        return this.patientData;
+    public String getPatientData(String name) throws URISyntaxException, IOException {
+        String patientData = null;
+        try {
+            String file = String.format("/%s.json", name);
+            URI uri = this.getClass().getResource(file).toURI();
+            patientData = Files.readAllLines(Paths.get(uri)).stream().collect(Collectors.joining());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return patientData;
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
@@ -25,7 +26,7 @@ public class PatientController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getPatient() throws URISyntaxException, IOException {
-        return Response.ok(this.patientService.getPatientData()).build();
+    public Response getPatient(@QueryParam("name") String name) throws URISyntaxException, IOException {
+        return Response.ok(this.patientService.getPatientData(name)).build();
     }
 }
