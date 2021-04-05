@@ -11,3 +11,14 @@ git clone https://github.com/danielptm/fhir_patient_backend.git
 http://localhost:8080/patient?name=kina
 ```
 
+How to call SMARTHealthIt FHIR server
+
+1. To get a patient's data
+```
+https://launch.smarthealthit.org/v/r4/fhir/Patient/5ee05359-57bf-4cee-8e89-91382c07e162
+```
+
+2. To get all Patients
+```
+https://launch.smarthealthit.org/v/r4/fhir/Patient
+```
